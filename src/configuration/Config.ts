@@ -11,7 +11,6 @@ export interface ConfigInterface {
   apiPrefix: string;
   node_env: string;
   logger: {
-    zx
     level: Level;
   };
   controllerPaths: string[];
@@ -28,8 +27,8 @@ function configuration(): ConfigInterface {
   };
   DotEnv.config(dotEnvOptions);
   return {
-    port: parseInt(process.env.PORT || '8080', 10),
-    host: process.env.HOST || 'http://localhost:8080',
+    port: parseInt(process.env.PORT || '3003', 10),
+    host: process.env.HOST || 'http://localhost:3003',
     apiPrefix: '/api',
     node_env: process.env.NODE_ENV || 'local',
     logger: {
@@ -37,7 +36,11 @@ function configuration(): ConfigInterface {
     },
     controllerPaths: [__dirname + '/../primaryAdapters/rest/**/*Controller.js'],
     middlewarePaths: [__dirname + '/../primaryAdapters/rest/common/HttpErrorHandlers.js'],
-    diContainerModulesPath: [__dirname + '/../core/component/**/*ContainerModule.js', __dirname + '/../primaryAdapters/**/*ContainerModule.js', __dirname + '/../secondaryAdapters/**/*ContainerModule.js'],
+    diContainerModulesPath: [
+      __dirname + '/../core/component/**/*ContainerModule.js',
+      __dirname + '/../primaryAdapters/**/*ContainerModule.js',
+      __dirname + '/../secondaryAdapters/**/*ContainerModule.js',
+    ],
   };
 }
 
