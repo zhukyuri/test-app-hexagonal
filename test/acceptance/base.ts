@@ -5,7 +5,7 @@ import {SinonStub} from 'sinon';
 import AppInitializer from '../../src/AppInitilizer';
 import {Application} from 'express';
 import {Container} from 'inversify';
-import * as PostgresConnection from '../../src/secondaryAdapters/postgres/Connection';
+import * as PostgresConnection from '../../src/adapters-secondary/postgres/Connection';
 import mocks, {resetAllMocks} from '../common/mocks';
 import {instance} from 'ts-mockito';
 import chaiHttp = require('chai-http');
@@ -60,4 +60,3 @@ export class AcceptanceSetupManager {
             .toConstantValue(instance(mocks.fcm.fcmServiceAdapter));
     }
 }
-

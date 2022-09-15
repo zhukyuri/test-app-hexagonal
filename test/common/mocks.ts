@@ -1,7 +1,7 @@
 import {mock, reset} from 'ts-mockito';
-import {EventRepositoryAdapter} from '../../src/secondaryAdapters/postgres/event/repository/EventRepositoryAdapter';
-import {UserRepositoryAdapter} from '../../src/secondaryAdapters/postgres/user/repository/UserRepositoryAdapter';
-import {FCMNotificationAdapter} from '../../src/secondaryAdapters/notification/FCMNotificationAdapter';
+import {EventRepositoryAdapter} from '../../src/adapters-secondary/postgres/event/repository/EventRepositoryAdapter';
+import {UserRepositoryAdapter} from '../../src/adapters-secondary/postgres/user/repository/UserRepositoryAdapter';
+import {FCMNotificationAdapter} from '../../src/adapters-secondary/notification/FCMNotificationAdapter';
 import * as R from 'ramda';
 
 const mocks = {

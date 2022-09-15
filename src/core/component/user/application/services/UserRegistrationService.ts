@@ -12,7 +12,10 @@ export class UserRegistrationService {
   private userRepo: UserRepository;
   private userConverter: Converter<User, UserResponse>;
 
-  constructor(@inject(UserRepositoryType) userRepo: UserRepository, @inject(UserConverter) userConverter: Converter<User, UserResponse>) {
+  constructor(
+    @inject(UserRepositoryType) userRepo: UserRepository,
+    @inject(UserConverter) userConverter: Converter<User, UserResponse>,
+  ) {
     this.userRepo = userRepo;
     this.userConverter = userConverter;
   }
@@ -21,13 +24,16 @@ export class UserRegistrationService {
     const userWithUsername = await this.userRepo.findByUsername(input.username);
 
     if (userWithUsername) throw new BadRequest('Username already exists');
-
     const newUser = User.fromObject({
       ...input,
     });
-
     const user = await this.userRepo.save(newUser);
 
     return this.userConverter.from(user);
   }
+
+  // TODO
+  // public async addToken(token: string, userId: string): void {
+  //
+  // }
 }

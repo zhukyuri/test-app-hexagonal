@@ -12,7 +12,7 @@ import {
   useExpressServer,
 } from 'routing-controllers';
 import { createDIContainer } from './configuration/DIContainer';
-import { createConnectionPool } from './secondaryAdapters/mongo/Connection';
+import { createConnectionPool } from './adapters-secondary/mongo/Connection';
 
 class AppInitializer {
   public app: express.Application;

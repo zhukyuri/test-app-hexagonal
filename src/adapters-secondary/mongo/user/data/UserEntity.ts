@@ -4,7 +4,7 @@ interface UserBuilderObj {
   id?: number | undefined | null;
   phone: string;
   username: string;
-  notificationTokens?: string[] | undefined | null;
+  tokens?: string[] | undefined | null;
 }
 
 @Entity({ name: 'users' })
@@ -19,14 +19,14 @@ export class UserEntity {
   username: string;
 
   @Column('text', { name: 'notification_tokens', array: true })
-  notificationTokens: string[] = [];
+  tokens: string[] = [];
 
   public static fromObject(builder: UserBuilderObj): UserEntity {
     const user = new UserEntity();
     user.id = builder.id || undefined;
     user.phone = builder.phone;
     user.username = builder.username;
-    if (builder.notificationTokens != null) user.notificationTokens = builder.notificationTokens;
+    if (builder.tokens != null) user.tokens = builder.tokens;
     return user;
   }
 }
