@@ -7,7 +7,9 @@ import { injectable } from 'inversify';
 export class UserConverter implements Converter<User, UserResponse> {
   from(from: User): UserResponse {
     return UserResponse.fromObject({
-      phone: from.phone, id: from.id, username: from.username,
+      phone: from.phone,
+      id: from.id,
+      username: from.username,
     });
   }
 
