@@ -8,12 +8,7 @@
   },
   "scripts": {
     "start": "node dist/src/server.js",
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "build": "tsc",
-    "test:acceptance": "mocha dist/test/acceptance/**/*.spec.js",
-    "test:integration": "mocha dist/test/integration/**/*.spec.js -t 30000",
-    "test:unit": "mocha dist/test/unit/**/*.spec.js",
-    "test": "mocha dist/test/**/*.spec.js -t 30000"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
