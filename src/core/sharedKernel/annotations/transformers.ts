@@ -1,5 +1,5 @@
-import {Transform} from 'class-transformer';
+import { Transform } from 'class-transformer';
 
 export function TransformToDate(target: any, key: string) {
-    Transform(value => value ? new Date(value) : null)(target, key);
+  Transform(value => value ? new Date(value) : null)(target, key);
 }

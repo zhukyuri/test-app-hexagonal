@@ -1,14 +1,15 @@
-version: '3.6'
+version: '3.8'
 services:
-  pgDB:
-    image: postgis/postgis:13-3.1-alpine
+  db:
+    image: postgres:14.1-alpine
     restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - '5432:5432'
     volumes:
-      - db_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: testdb
+      - db:/var/lib/postgresql/data
 volumes:
-  db_data:
+  db:
+    driver: local
